@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petualangan Bahasa Indonesia — Kelas VI</title>
+<style>
+:root{--ink:#20304a;--blue:#4361ee;--purple:#805ad5;--yellow:#ffd166;--mint:#d9fbe8;--pink:#ffe0e8;--paper:#fff;--muted:#65738b;--line:#e5eaf4;--green:#16845b;--red:#c33b54}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 5%,#e0f7ff 0,transparent 27%),radial-gradient(circle at 95% 12%,#ffe5ef 0,transparent 25%),#f6f8ff;min-height:100vh}
+header{padding:22px 16px 12px;text-align:center}.brand{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid var(--line);border-radius:99px;padding:7px 13px;font-weight:800;font-size:.82rem;color:var(--blue)}h1{font-size:clamp(1.8rem,4vw,3rem);margin:12px 0 6px;line-height:1.1}header p{color:var(--muted);margin:0}
+.wrap{width:min(1000px,calc(100% - 28px));margin:16px auto 45px}.card{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,30px);box-shadow:0 12px 35px #34456b0d;margin-bottom:18px}
+h2{margin:0 0 14px;font-size:1.35rem}h3{margin:0 0 8px}.sub{color:var(--muted);font-size:.94rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;font-weight:750;font-size:.9rem;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1.5px solid #dce3f0;border-radius:12px;padding:12px 13px;font:inherit;background:white;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid #dce5ff;border-color:var(--blue)}
+button{border:0;border-radius:13px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;transition:transform .12s,filter .12s}button:hover{filter:brightness(.98);transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.primary{background:var(--blue);color:white}.secondary{background:#eef1ff;color:var(--blue)}.sun{background:var(--yellow);color:#503b00}.danger{background:#fff0f2;color:var(--red)}.btnrow{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.pill{display:inline-flex;align-items:center;gap:6px;border-radius:99px;background:#f0f3ff;padding:7px 11px;font-weight:800;font-size:.84rem}.hidden{display:none!important}.progress{height:10px;background:#edf0f8;border-radius:99px;overflow:hidden;margin:13px 0 20px}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .25s}.passage{background:#f3f8ff;border-left:5px solid #7aa7ff;border-radius:12px;padding:15px;line-height:1.65;margin:15px 0}.options{display:grid;gap:10px;margin:17px 0}.option{border:1.5px solid var(--line);border-radius:13px;padding:13px;text-align:left;background:#fff;color:var(--ink);font-weight:650}.option.selected{border-color:var(--blue);background:#edf1ff}.option.correct{border-color:var(--green);background:#e8fff3}.option.wrong{border-color:var(--red);background:#fff0f2}.feedback{padding:13px;border-radius:13px;margin:12px 0;line-height:1.5}.feedback.good{background:#e8fff3;color:#146846}.feedback.bad{background:#fff0f2;color:#a62d43}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.stat{background:#f5f7ff;border-radius:15px;padding:15px;text-align:center}.stat strong{display:block;font-size:1.6rem;color:var(--blue)}.stat span{font-size:.82rem;color:var(--muted)}table{border-collapse:collapse;width:100%;min-width:600px}th,td{padding:11px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:.9rem}th{background:#f5f7ff}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px}.small{font-size:.84rem;color:var(--muted)}.badge{background:#fff6d8;border-radius:99px;padding:6px 10px;font-weight:800}.essayitem{border:1px solid var(--line);border-radius:15px;padding:15px;margin:12px 0}.essayitem textarea{width:100%;min-height:90px;border:1.5px solid #dce3f0;border-radius:12px;padding:12px;font:inherit;resize:vertical}.certificate{border:8px double #e3b341;padding:26px;text-align:center;background:#fffdf4;border-radius:8px}.certificate h2{font-size:1.8rem;color:#6846b5}.certificate .big{font-size:1.6rem;font-weight:900;color:#253e9c}.foot{text-align:center;color:var(--muted);font-size:.83rem;padding:15px}.notice{background:#fff8df;border:1px solid #f3df9a;border-radius:12px;padding:12px;font-size:.88rem;line-height:1.5}.switches{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.card{border-radius:18px}.wrap{width:calc(100% - 18px)}header{padding-top:18px}.btnrow button{flex:1 1 140px}}
+@media print{body{background:white}.noprint,header,.foot{display:none!important}.wrap{width:100%;margin:0}.card{box-shadow:none;border:0}.certificate{margin:0;min-height:90vh;display:flex;flex-direction:column;justify-content:center}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">⭐ MISI BELAJAR • FASE C</div>
+  <h1>Petualangan Bahasa <span style="color:#805ad5">Indonesia</span></h1>
+  <p>Kelas VI SD · Belajar, bermain, dan raih bintang!</p>
+</header>
+<main class="wrap">
+<section id="home" class="card">
+ <div class="topbar"><h2>🎒 Siap memulai petualangan?</h2><span class="pill">📚 10 Pilihan Ganda + 5 Esai</span></div>
+ <p class="sub">Isi identitas dengan benar sebelum bermain. Bacalah soal dengan teliti dan semangat!</p>
+ <div class="grid">
+  <div class="field"><label for="studentName">Nama lengkap *</label><input id="studentName" maxlength="100" placeholder="Nama siswa"></div>
+  <div class="field"><label for="studentClass">Kelas *</label><select id="studentClass"><option value="">Pilih kelas</option><option>VI A</option><option>VI B</option><option>VI C</option></select></div>
+  <div class="field"><label for="studentNumber">Nomor absen</label><input id="studentNumber" type="number" min="1" max="60" placeholder="Contoh: 12"></div>
+  <div class="field"><label for="workDate">Tanggal pengerjaan</label><input id="workDate" type="date"></div>
+ </div>
+ <div class="btnrow"><button class="primary" id="startBtn">🚀 Mulai Game</button><button class="secondary" id="readIntro">🔊 Dengarkan Petunjuk</button><button class="secondary" id="soundToggle" aria-pressed="true">🔊 Suara: ON</button><button class="secondary" id="musicToggle" aria-pressed="false">🎵 Musik: OFF</button><button class="secondary" id="teacherOpen">🧑‍🏫 Dashboard Guru</button></div>
+ <p class="small">Sekolah: <b>SD Negeri 3 Muara Rupit</b> · Guru: <b>Rasmila Br Ginting, S.Pd.</b> · Tahun Pelajaran 2026/2027</p>
+ <div class="notice">Catatan: hasil tersimpan di browser/perangkat ini. Untuk rekap lintas perangkat, diperlukan database cloud yang dikonfigurasi dan diamankan.</div>
+</section>
+
+<section id="game" class="card hidden">
+ <div class="topbar"><span class="pill" id="stageLabel">🧭 Tantangan 1</span><span class="pill" id="scoreLabel">⭐ Skor sementara: 0</span></div>
+ <div class="progress"><div id="progressBar"></div></div>
+ <div id="questionArea"></div>
+ <div id="feedback" class="feedback hidden"></div>
+ <div class="btnrow"><button class="secondary" id="speakQuestion">🔊 Dengarkan Soal</button><button class="primary" id="nextBtn" disabled>Berikutnya ➜</button><button class="danger" id="quitBtn">Keluar</button></div>
+</section>
+
+<section id="essay" class="card hidden">
+ <div class="topbar"><h2>✍️ Tantangan Esai</h2><span class="pill">5 soal uraian</span></div>
+ <p class="sub">Jawablah dengan kalimat sendiri. Jawaban esai disimpan untuk diperiksa guru dan tidak dinilai otomatis.</p>
+ <div id="essayArea"></div>
+ <div class="btnrow"><button class="primary" id="submitAll">🏁 Selesaikan Petualangan</button><button class="secondary" id="speakEssay">🔊 Dengarkan Petunjuk</button></div>
+</section>
+
+<section id="result" class="card hidden">
+ <div class="topbar"><h2>🏆 Petualangan Selesai!</h2><span class="badge" id="rankBadge">Bintang diraih ⭐</span></div>
+ <div class="stats">
+  <div class="stat"><strong id="finalScore">0</strong><span>Nilai pilihan ganda</span></div>
+  <div class="stat"><strong id="correctCount">0/10</strong><span>Jawaban benar</span></div>
+  <div class="stat"><strong id="starsCount">⭐</strong><span>Penghargaan</span></div>
+ </div>
+ <p id="resultMessage"></p>
+ <div class="btnrow"><button class="primary" id="showCert">🎓 Lihat Sertifikat</button><button class="secondary" id="playAgain">🔄 Main Lagi</button><button class="secondary" id="openDash2">📊 Lihat Rekap Guru</button></div>
+ <div id="certArea" class="hidden" style="margin-top:20px">
+  <div class="certificate" id="certificate">
+   <div style="font-size:2.4rem">🏅 ⭐ 📚 ⭐ 🏅</div>
+   <p style="letter-spacing:3px;font-weight:800;color:#8a6a1d">SD NEGERI 3 MUARA RUPIT</p>
+   <h2>SERTIFIKAT PETUALANG BAHASA INDONESIA</h2>
+   <p>Diberikan kepada</p><div class="big" id="certName">Nama Siswa</div>
+   <p id="certClass"></p><p>Atas partisipasi dalam Game Edukasi Bahasa Indonesia Kelas VI</p>
+   <div class="big" id="certScore">Nilai: 0</div><p id="certPred"></p><p id="certDate"></p>
+   <div style="display:flex;justify-content:space-around;gap:25px;margin-top:35px;flex-wrap:wrap"><div><p>Guru Mata Pelajaran</p><b>Rasmila Br Ginting, S.Pd.</b><p style="margin-top:30px">_____________________</p></div><div><p>Penghargaan</p><b id="certStars">⭐</b><p style="margin-top:30px">Petualang Bahasa</p></div></div>
+  </div>
+  <div class="btnrow noprint"><button class="primary" id="printCert">🖨️ Cetak / Simpan PDF</button></div>
+ </div>
+</section>
+
+<section id="teacher" class="card hidden">
+ <div class="topbar"><h2>🧑‍🏫 Dashboard Guru</h2><button class="secondary" id="closeDash">Tutup ✕</button></div>
+ <p class="sub">Rekap lokal pada browser ini. Untuk menjaga privasi, gunakan perangkat guru dan jangan membagikan data siswa secara publik.</p>
+ <div class="grid">
+  <div class="field"><label for="teacherPin">PIN guru (default awal: 2468)</label><input id="teacherPin" type="password" inputmode="numeric" placeholder="Masukkan PIN"></div>
+  <div class="field"><label for="classFilter">Filter kelas</label><select id="classFilter"><option value="">Semua kelas</option><option>VI A</option><option>VI B</option><option>VI C</option></select></div>
+ </div>
+ <div class="btnrow"><button class="primary" id="loginTeacher">Buka Dashboard</button><button class="secondary" id="exportCsv" disabled>⬇️ Ekspor CSV</button><button class="secondary" id="printReport" disabled>🖨️ Cetak / PDF</button><button class="danger" id="clearData" disabled>Hapus Semua Data</button></div>
+ <div id="dashContent" class="hidden" style="margin-top:20px">
+  <div class="stats"><div class="stat"><strong id="totalStudents">0</strong><span>Rekaman</span></div><div class="stat"><strong id="averageScore">0</strong><span>Rata-rata PG</span></div><div class="stat"><strong id="mastery">0%</strong><span>Tuntas (KKTP 70)</span></div></div>
+  <div style="margin-top:18px" class="tablewrap"><table><thead><tr><th>Nama</th><th>Kelas</th><th>Absen</th><th>Tanggal</th><th>Nilai PG</th><th>Benar</th><th>Esai terisi</th></tr></thead><tbody id="records"></tbody></table></div>
+  <p class="small">PIN ini hanya pengunci sederhana di browser, bukan autentikasi aman untuk sistem publik. Untuk dashboard online gunakan backend dan autentikasi server.</p>
+ </div>
+</section>
+<div class="foot">✨ Belajar dengan gembira • Petualangan Bahasa Indonesia Kelas VI ✨</div>
+</main>
+<script>
+const questions=[
+{topic:"Ide pokok",passage:"Setiap Jumat, siswa kelas VI membersihkan taman sekolah. Mereka mencabut rumput liar, menyiram tanaman, dan mengumpulkan sampah. Taman yang bersih membuat sekolah terasa nyaman.",q:"Ide pokok paragraf tersebut adalah …",opts:["Siswa kelas VI suka bermain di taman.","Kegiatan membersihkan taman sekolah setiap Jumat.","Tanaman harus disiram setiap hari.","Sekolah memiliki banyak ruang kelas."],a:1,why:"Paragraf terutama membahas kegiatan siswa membersihkan taman setiap Jumat."},
+{topic:"Informasi tersurat",passage:"Perpustakaan sekolah dibuka pukul 07.30 sampai 12.00. Siswa boleh meminjam dua buku selama satu minggu.",q:"Berapa lama siswa boleh meminjam buku?",opts:["Satu hari","Dua minggu","Satu minggu","Satu bulan"],a:2,why:"Teks menyatakan buku boleh dipinjam selama satu minggu."},
+{topic:"Simpulan",passage:"Dina membawa botol minum sendiri. Ia juga menggunakan kotak makan dan menghindari kantong plastik sekali pakai.",q:"Simpulan yang tepat adalah …",opts:["Dina tidak suka makan.","Dina berusaha mengurangi sampah plastik.","Dina selalu membeli minuman.","Dina tidak membawa bekal."],a:1,why:"Kebiasaan Dina menunjukkan upaya mengurangi penggunaan plastik sekali pakai."},
+{topic:"Makna kata",passage:"Warga bekerja sama memperbaiki jembatan yang rusak agar anak-anak dapat pergi ke sekolah dengan aman.",q:"Makna kata 'bekerja sama' adalah …",opts:["Bekerja sendirian","Saling membantu untuk mencapai tujuan","Menunggu orang lain","Membagi pekerjaan tanpa berbicara"],a:1,why:"Bekerja sama berarti melakukan sesuatu bersama-sama dan saling membantu."},
+{topic:"Informasi tersirat",passage:"Langit mulai gelap. Angin bertiup kencang dan beberapa warga segera mengangkat pakaian yang dijemur.",q:"Apa kemungkinan yang akan terjadi?",opts:["Cuaca akan semakin panas.","Hujan mungkin segera turun.","Malam akan berubah menjadi siang.","Angin akan berhenti selamanya."],a:1,why:"Langit gelap, angin kencang, dan pakaian diangkat mengisyaratkan kemungkinan hujan."},
+{topic:"Unsur cerita",passage:"Setiap sore, Raka membantu nenek menyiram bunga di halaman. Walau lelah setelah sekolah, ia tetap melakukannya dengan senang hati.",q:"Watak Raka dalam cerita tersebut adalah …",opts:["Pemalas","Sombong","Rajin dan peduli","Mudah marah"],a:2,why:"Raka tetap membantu nenek meskipun lelah, menunjukkan sikap rajin dan peduli."},
+{topic:"Tujuan teks",passage:"Cara membuat pembatas buku: siapkan karton, gunting, pensil warna, dan pita. Potong karton berbentuk persegi panjang, hias, lalu beri lubang untuk memasang pita.",q:"Tujuan teks tersebut adalah …",opts:["Menceritakan pengalaman liburan","Menjelaskan cara membuat pembatas buku","Mengajak pembaca membeli buku","Menggambarkan suasana perpustakaan"],a:1,why:"Teks berisi bahan dan langkah-langkah membuat pembatas buku."},
+{topic:"Sinonim",passage:"Mira merasa gembira ketika kelompoknya memenangkan lomba membaca puisi.",q:"Sinonim kata 'gembira' adalah …",opts:["Sedih","Cemas","Senang","Kecewa"],a:2,why:"Gembira memiliki makna yang sama atau dekat dengan senang."},
+{topic:"Puisi",passage:"Pagi menyapa di balik jendela\nBurung bernyanyi riang gembira\nMentari hadir membawa cahaya\nSemangat tumbuh dalam jiwa",q:"Suasana yang tergambar dalam puisi tersebut adalah …",opts:["Mencekam","Ceria dan penuh semangat","Sedih dan sunyi","Marah dan kecewa"],a:1,why:"Kata 'riang gembira', 'cahaya', dan 'semangat' membangun suasana ceria."},
+{topic:"Evaluasi informasi",passage:"Poster berbunyi: 'Bawa tumbler dari rumah! Kurangi sampah plastik demi bumi yang sehat.'",q:"Pesan utama poster tersebut adalah …",opts:["Membeli botol plastik sebanyak-banyaknya","Mengurangi sampah plastik dengan membawa botol minum sendiri","Tidak perlu minum di sekolah","Membuang sampah ke sungai"],a:1,why:"Poster mengajak pembaca membawa tumbler untuk mengurangi sampah plastik."}
+];
+const essays=[
+{q:"Bacalah paragraf berikut: “Olahraga teratur membuat tubuh lebih sehat. Olahraga juga membantu tidur lebih nyenyak dan meningkatkan semangat.” Tuliskan ide pokoknya."},
+{q:"Mengapa kita perlu memeriksa kebenaran informasi sebelum membagikannya? Tuliskan dua alasan."},
+{q:"Buatlah simpulan 2–3 kalimat tentang pentingnya menjaga kebersihan lingkungan sekolah."},
+{q:"Tuliskan sinonim dari kata 'rajin' dan buat satu kalimat menggunakan kata tersebut."},
+{q:"Buatlah puisi singkat 4 baris bertema persahabatan atau semangat belajar."}
+];
+const $=id=>document.getElementById(id);
+const panels=["home","game","essay","result","teacher"];
+let student={},idx=0,correct=0,answers=[],essayAnswers=[],soundOn=true,musicOn=false,audioCtx=null,teacherAuthed=false;
+const STORE="petualanganBahasaVI_records_v1";
+$("workDate").value=new Date().toISOString().slice(0,10);
+function showPanel(id){panels.forEach(p=>$(p).classList.toggle("hidden",p!==id));window.scrollTo({top:0,behavior:"smooth"});}
+function say(text){if(!soundOn||!("speechSynthesis"in window))return;window.speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang="id-ID";u.rate=.92;window.speechSynthesis.speak(u);}
+function tone(freq,duration=.14,type="sine"){if(!soundOn)return;try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(.06,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+duration);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration);}catch(e){}}
+function beep(kind){if(kind==="good"){tone(660);setTimeout(()=>tone(880),100)}else if(kind==="bad"){tone(220,.2,"triangle")}else{tone(523);setTimeout(()=>tone(659),100);setTimeout(()=>tone(784),200)}}
+function getRecords(){try{return JSON.parse(localStorage.getItem(STORE)||"[]")}catch(e){return[]}}
+function saveRecord(r){let all=getRecords();all.push(r);localStorage.setItem(STORE,JSON.stringify(all));}
+function start(){const name=$("studentName").value.trim(),cl=$("studentClass").value;if(!name||!cl){alert("Mohon isi nama lengkap dan kelas terlebih dahulu.");return}
+ student={name,cl,number:$("studentNumber").value.trim(),date:$("workDate").value||new Date().toISOString().slice(0,10)};idx=0;correct=0;answers=Array(questions.length).fill(null);essayAnswers=Array(essays.length).fill("");showPanel("game");renderQuestion();say("Selamat datang "+student.name+". Ayo mulai petualangan Bahasa Indonesia.");}
+function renderQuestion(){const q=questions[idx];$("stageLabel").textContent="🧭 Soal "+(idx+1)+" dari "+questions.length+" · "+q.topic;$("scoreLabel").textContent="⭐ Skor sementara: "+Math.round(correct/questions.length*100);$("progressBar").style.width=(idx/questions.length*100)+"%";$("feedback").classList.add("hidden");$("nextBtn").disabled=true;
+ let p=q.passage?`<div class="passage">${q.passage.replace(/\n/g,"<br>")}</div>`:"";
+ $("questionArea").innerHTML=`<h2>${q.q}</h2>${p}<div class="options">${q.opts.map((o,i)=>`<button class="option" data-i="${i}"><b>${String.fromCharCode(65+i)}.</b> ${o}</button>`).join("")}</div>`;
+ document.querySelectorAll(".option").forEach(b=>b.addEventListener("click",()=>choose(Number(b.dataset.i))));
+ $("nextBtn").textContent=idx===questions.length-1?"Lanjut ke Esai ➜":"Soal Berikutnya ➜";
+}
+function choose(n){if(answers[idx]!==null)return;const q=questions[idx];answers[idx]=n;let good=n===q.a;if(good)correct++;document.querySelectorAll(".option").forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add("correct");if(i===n&&!good)b.classList.add("wrong")});
+ const f=$("feedback");f.classList.remove("hidden","good","bad");f.classList.add(good?"good":"bad");f.innerHTML=`<b>${good?"🎉 Hebat! Jawaban benar.":"💡 Belum tepat, tetap semangat!"}</b><br>${q.why}`;$("scoreLabel").textContent="⭐ Skor sementara: "+Math.round(correct/questions.length*100);$("nextBtn").disabled=false;beep(good?"good":"bad");say((good?"Jawaban benar. ":"Jawaban belum tepat. ")+q.why);}
+function next(){if(answers[idx]===null)return;if(idx<questions.length-1){idx++;renderQuestion();say(questions[idx].q)}else{showPanel("essay");renderEssays();say("Sekarang jawab lima soal esai dengan kalimatmu sendiri.");}}
+function renderEssays(){$("essayArea").innerHTML=essays.map((e,i)=>`<div class="essayitem"><b>Esai ${i+1}.</b> ${e.q}<textarea data-essay="${i}" maxlength="1500" placeholder="Tuliskan jawabanmu di sini...">${essayAnswers[i]||""}</textarea></div>`).join("");document.querySelectorAll("[data-essay]").forEach(t=>t.addEventListener("input",()=>essayAnswers[Number(t.dataset.essay)]=t.value));}
+function finish(){essayAnswers=Array.from(document.querySelectorAll("[data-essay]")).map(t=>t.value.trim());let score=Math.round(correct/questions.length*100),pred=score>=90?"Sangat Baik":score>=80?"Baik":score>=70?"Cukup":"Perlu Berlatih Lagi",stars=score>=90?"⭐⭐⭐":score>=70?"⭐⭐":"⭐";
+ const record={...student,score,correct,wrong:questions.length-correct,essayAnswers,essayFilled:essayAnswers.filter(Boolean).length,answers:answers.slice(),completedAt:new Date().toISOString(),pred};saveRecord(record);
+ $("finalScore").textContent=score;$("correctCount").textContent=correct+"/10";$("starsCount").textContent=stars;$("rankBadge").textContent=stars+" "+pred;$("resultMessage").textContent=`Hebat, ${student.name}! Kamu menyelesaikan 10 soal pilihan ganda dan 5 soal esai. Jawaban esai menunggu pemeriksaan guru.`;$("certName").textContent=student.name;$("certClass").textContent=`Kelas ${student.cl}${student.number?" · Nomor absen "+student.number:""}`;$("certScore").textContent="Nilai Pilihan Ganda: "+score;$("certPred").textContent="Predikat: "+pred;$("certDate").textContent="Tanggal: "+student.date;$("certStars").textContent=stars;
+ $("progressBar").style.width="100%";showPanel("result");beep("finish");say("Permainan selesai. Nilai pilihan ganda kamu "+score+". Predikat "+pred+". Terima kasih sudah belajar.");}
+function openTeacher(){showPanel("teacher");$("teacherPin").value="";$("dashContent").classList.add("hidden");teacherAuthed=false;$("exportCsv").disabled=true;$("printReport").disabled=true;$("clearData").disabled=true;}
+function dashboard(){if($("teacherPin").value!=="2468"){alert("PIN tidak sesuai. PIN awal demo adalah 2468; ubah di kode sebelum digunakan bersama siswa.");return}teacherAuthed=true;$("dashContent").classList.remove("hidden");["exportCsv","printReport","clearData"].forEach(id=>$(id).disabled=false);renderRecords();}
+function filteredRecords(){let cl=$("classFilter").value;return getRecords().filter(r=>!cl||r.cl===cl).sort((a,b)=>(b.completedAt||"").localeCompare(a.completedAt||""))}
+function renderRecords(){let rs=filteredRecords(),avg=rs.length?Math.round(rs.reduce((s,r)=>s+r.score,0)/rs.length):0,mastery=rs.length?Math.round(rs.filter(r=>r.score>=70).length/rs.length*100):0;$("totalStudents").textContent=rs.length;$("averageScore").textContent=avg;$("mastery").textContent=mastery+"%";$("records").innerHTML=rs.length?rs.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.cl)}</td><td>${esc(r.number||"-")}</td><td>${esc(r.date||"-")}</td><td><b>${r.score}</b> · ${esc(r.pred||"")}</td><td>${r.correct}/10</td><td>${r.essayFilled||0}/5</td></tr>`).join(""):`<tr><td colspan="7">Belum ada data permainan pada browser ini.</td></tr>`}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function csv(){if(!teacherAuthed)return;let rs=filteredRecords(),rows=[["Nama","Kelas","Absen","Tanggal","Nilai PG","Benar","Salah","Esai terisi","Predikat","Jawaban Esai"],...rs.map(r=>[r.name,r.cl,r.number,r.date,r.score,r.correct,r.wrong,r.essayFilled,r.pred,(r.essayAnswers||[]).join(" | ")])];let content="\uFEFF"+rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");let blob=new Blob([content],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="rekap-nilai-bahasa-indonesia.csv";a.click();URL.revokeObjectURL(url)}
+$("startBtn").addEventListener("click",start);$("nextBtn").addEventListener("click",next);$("quitBtn").addEventListener("click",()=>{if(confirm("Keluar dari permainan? Jawaban yang belum selesai tidak akan disimpan."))showPanel("home")});$("speakQuestion").addEventListener("click",()=>{let q=questions[idx];say(q.q+" "+(q.passage||"")+" Pilihan: "+q.opts.join(". "))});$("readIntro").addEventListener("click",()=>say("Isi nama lengkap dan kelas. Jawab sepuluh soal pilihan ganda, lalu lima soal esai. Selamat bermain."));
+$("soundToggle").addEventListener("click",()=>{soundOn=!soundOn;$("soundToggle").textContent=soundOn?"🔊 Suara: ON":"🔇 Suara: OFF";$("soundToggle").setAttribute("aria-pressed",String(soundOn));if(!soundOn&&"speechSynthesis"in window)window.speechSynthesis.cancel()});
+$("musicToggle").addEventListener("click",()=>{musicOn=!musicOn;$("musicToggle").textContent=musicOn?"🎵 Musik: ON (nada ringan)":"🎵 Musik: OFF";$("musicToggle").setAttribute("aria-pressed",String(musicOn));if(musicOn){say("Musik latar diwakili nada pembuka singkat.");beep("finish")}});
+$("speakEssay").addEventListener("click",()=>say("Jawab lima soal esai menggunakan kalimat sendiri. Tekan tombol selesaikan petualangan setelah semua jawaban selesai."));$("submitAll").addEventListener("click",()=>{if(confirm("Selesaikan permainan dan simpan nilai serta jawaban esai?"))finish()});
+$("showCert").addEventListener("click",()=>{$("certArea").classList.toggle("hidden");if(!$("certArea").classList.contains("hidden"))$("certArea").scrollIntoView({behavior:"smooth"})});$("printCert").addEventListener("click",()=>window.print());$("playAgain").addEventListener("click",()=>{["studentName","studentNumber"].forEach(id=>$(id).value="");$("studentClass").value="";$("workDate").value=new Date().toISOString().slice(0,10);showPanel("home")});$("teacherOpen").addEventListener("click",openTeacher);$("openDash2").addEventListener("click",openTeacher);$("closeDash").addEventListener("click",()=>showPanel("home"));$("loginTeacher").addEventListener("click",dashboard);$("classFilter").addEventListener("change",()=>{if(teacherAuthed)renderRecords()});$("exportCsv").addEventListener("click",csv);$("printReport").addEventListener("click",()=>window.print());$("clearData").addEventListener("click",()=>{if(teacherAuthed&&confirm("Hapus seluruh rekap nilai dari browser ini? Tindakan ini tidak dapat dibatalkan.")){localStorage.removeItem(STORE);renderRecords();alert("Rekap lokal dihapus.")}});
+</script>
+</body>
+</html>
