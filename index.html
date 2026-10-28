@@ -18,6 +18,37 @@ main{max-width:1000px;margin:22px auto;padding:0 14px 35px}.panel{background:whi
 .soundbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#f3f8ff;border:1px solid #dce8f6;border-radius:10px;padding:12px;margin:12px 0}.soundbar label{margin:0}.soundbar select{width:auto;max-width:100%}
 footer{text-align:center;color:#61748a;padding:20px;font-size:13px}
 @media print{body{background:white}header,nav,main>section:not(#certificateSection),#certificateSection>h2,#certificateSection>.actions,.no-print,footer{display:none!important}main{margin:0;padding:0;max-width:none}.panel{box-shadow:none;border:0;margin:0;padding:0}#certificate{display:block!important;min-height:90vh;padding:45px 25px}}
+
+/* Bingkai sertifikat klasik emas dan navy */
+#certificate {
+  box-sizing: border-box;
+  border: 10px double #a8863d;
+  outline: 2px solid #d6bd7b;
+  outline-offset: -17px;
+  padding: 36px;
+  background: #fffdf6;
+  color: #193452;
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(42, 35, 20, 0.14);
+  border-radius: 4px;
+}
+
+#certificate h2 {
+  color: #8a6b2f;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+@media print {
+  #certificate {
+    border: 8px double #a8863d;
+    outline: 2px solid #d6bd7b;
+    box-shadow: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
 </style>
 </head>
 <body>
