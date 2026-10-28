@@ -1,1 +1,57 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuis Bahasa Indonesia Kelas VI</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eef5ff;margin:0;padding:20px;color:#183153}
+.container{max-width:700px;margin:auto;background:white;padding:24px;border-radius:16px;box-shadow:0 4px 15px #ccd5e3}
+h1{text-align:center;color:#1456a0}
+button{background:#1769d2;color:white;border:0;padding:12px 18px;border-radius:8px;cursor:pointer;margin-top:12px}
+button:hover{background:#104c9e}
+.option{display:block;background:#f0f5fc;padding:12px;margin:10px 0;border-radius:8px;cursor:pointer}
+#result{font-weight:bold;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📚 Kuis Bahasa Indonesia</h1>
+<h2>SD Negeri 3 Muara Rupit</h2>
+<p>Kelas VI — Pilih jawaban yang paling tepat!</p>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Periksa Jawaban</button>
+<div id="result"></div>
+</div>
+<script>
+const questions=[
+{q:"1. Gagasan utama dalam sebuah paragraf disebut ...",a:["Kalimat penutup","Ide pokok","Kata sambung","Judul buku"],c:1},
+{q:"2. Teks yang menceritakan suatu peristiwa disebut ...",a:["Teks narasi","Teks prosedur","Teks iklan","Teks petunjuk"],c:0},
+{q:"3. Sinonim kata 'rajin' adalah ...",a:["Malas","Tekun","Lambat","Lalai"],c:1},
+{q:"4. Kalimat yang berisi ajakan adalah ...",a:["Siapa namamu?","Buku itu tebal.","Marilah kita menjaga kebersihan!","Saya sedang membaca."],c:2},
+{q:"5. Ringkasan yang baik harus ...",a:["Lebih panjang dari teks","Memuat semua kata","Memuat inti bacaan","Berisi pendapat saja"],c:2}
+];
+const quiz=document.getElementById("quiz");
+questions.forEach((item,i)=>{
+let html="<p><b>"+item.q+"</b></p>";
+item.a.forEach((option,j)=>{
+html+='<label class="option"><input type="radio" name="q'+i+'" value="'+j+'"> '+option+'</label>';
+});
+quiz.innerHTML+=html;
+});
+function checkAnswers(){
+let score=0,answered=0;
+questions.forEach((item,i)=>{
+const chosen=document.querySelector('input[name="q'+i+'"]:checked');
+if(chosen){answered++;if(Number(chosen.value)===item.c)score++;}
+});
+document.getElementById("result").textContent=
+"Jawaban terisi: "+answered+"/"+questions.length+
+". Nilai: "+Math.round(score/questions.length*100)+
+". Benar: "+score+" dari "+questions.length+" soal.";
+}
+</script>
+</body>
+</html>
+
