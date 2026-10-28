@@ -1,57 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuis Bahasa Indonesia Kelas VI</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuis Bahasa Indonesia Kelas VI - SD Negeri 3 Muara Rupit</title>
 <style>
-body{font-family:Arial,sans-serif;background:#eef5ff;margin:0;padding:20px;color:#183153}
-.container{max-width:700px;margin:auto;background:white;padding:24px;border-radius:16px;box-shadow:0 4px 15px #ccd5e3}
-h1{text-align:center;color:#1456a0}
-button{background:#1769d2;color:white;border:0;padding:12px 18px;border-radius:8px;cursor:pointer;margin-top:12px}
-button:hover{background:#104c9e}
-.option{display:block;background:#f0f5fc;padding:12px;margin:10px 0;border-radius:8px;cursor:pointer}
-#result{font-weight:bold;margin-top:18px}
+:root{--blue:#1558a6;--navy:#12345a;--bg:#eef5ff;--gold:#f2c14e;--green:#19734b;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#18304b;line-height:1.5}
+header{background:linear-gradient(120deg,#12345a,#1769c2);color:white;text-align:center;padding:24px 15px}header h1{margin:0;font-size:clamp(22px,4vw,32px)}header p{margin:5px}
+nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:12px;background:white;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:2}
+button{border:0;border-radius:9px;padding:11px 15px;background:var(--blue);color:white;font-weight:bold;cursor:pointer;font-size:15px}button:hover{filter:brightness(.93)}button.secondary{background:#e5eef9;color:#17395f}button.green{background:var(--green)}button.gold{background:#a47709}button.danger{background:var(--red)}
+main{max-width:1000px;margin:22px auto;padding:0 14px 35px}.panel{background:white;border-radius:16px;padding:clamp(16px,3vw,25px);margin-bottom:18px;box-shadow:0 5px 20px #12345a12;border:1px solid #dce8f6}h2{color:var(--navy);margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}label{display:block;font-weight:bold;margin:10px 0 5px}input,select{width:100%;padding:12px;border:1px solid #b9cce2;border-radius:8px;font-size:16px;background:#fff;color:#17304b}.hidden{display:none!important}.note{font-size:.93rem;color:#52677f}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.question{padding:16px 0;border-bottom:1px solid #e4edf7}.question p{font-weight:bold;margin:0 0 8px}.option{display:flex;align-items:flex-start;gap:9px;background:#f4f8fd;border:1px solid #e0eaf6;padding:10px 12px;border-radius:8px;margin:7px 0;cursor:pointer;font-weight:normal}.option input{width:auto;margin-top:4px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.stat{background:#f1f7ff;border-radius:12px;padding:15px;text-align:center}.stat strong{display:block;font-size:1.6rem;color:var(--blue)}
+.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid #d9e5f2;padding:9px;text-align:left;white-space:nowrap}th{background:#eaf3ff;color:#12345a}
+#certificate{background:#fff;border:10px double #c99a2e;padding:30px;text-align:center;color:#17395f}.cert-name{font-size:1.8rem;font-weight:bold;border-bottom:1px solid #c99a2e;display:inline-block;padding:6px 20px}
+.soundbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#f3f8ff;border:1px solid #dce8f6;border-radius:10px;padding:12px;margin:12px 0}.soundbar label{margin:0}.soundbar select{width:auto;max-width:100%}
+footer{text-align:center;color:#61748a;padding:20px;font-size:13px}
+@media print{body{background:white}header,nav,main>section:not(#certificateSection),#certificateSection>h2,#certificateSection>.actions,.no-print,footer{display:none!important}main{margin:0;padding:0;max-width:none}.panel{box-shadow:none;border:0;margin:0;padding:0}#certificate{display:block!important;min-height:90vh;padding:45px 25px}}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>📚 Kuis Bahasa Indonesia</h1>
-<h2>SD Negeri 3 Muara Rupit</h2>
-<p>Kelas VI — Pilih jawaban yang paling tepat!</p>
-<div id="quiz"></div>
-<button onclick="checkAnswers()">Periksa Jawaban</button>
-<div id="result"></div>
+<header><h1>🔊 Kuis Interaktif Bahasa Indonesia</h1><p><strong>SD NEGERI 3 MUARA RUPIT</strong></p><p>Kelas VI A dan VI B • 10 Soal • Suara Pembaca • Penilaian Otomatis</p></header>
+<nav>
+<button onclick="showSection('studentSection')">📝 Mulai Kuis</button>
+<button class="secondary" onclick="showSection('dashboardSection')">👩‍🏫 Dasbor Guru</button>
+<button class="secondary" onclick="showSection('certificateSection')">🏅 Sertifikat</button>
+<button class="secondary" id="soundToggle" onclick="toggleSound()">🔊 Suara: Aktif</button>
+</nav>
+<main>
+<section id="studentSection" class="panel">
+<h2>Identitas Siswa</h2><p>Isi identitas sebelum menjawab soal.</p>
+<div class="grid">
+<div><label for="studentName">Nama lengkap siswa *</label><input id="studentName" placeholder="Masukkan nama lengkap"></div>
+<div><label for="studentClass">Kelas *</label><select id="studentClass"><option value="">-- Pilih kelas --</option><option>VI A</option><option>VI B</option></select></div>
+<div><label for="studentNumber">Nomor absen (opsional)</label><input id="studentNumber" type="number" min="1" placeholder="Contoh: 12"></div>
+<div><label for="studentDate">Tanggal</label><input id="studentDate" type="date"></div>
 </div>
+<div class="soundbar"><strong>🔊 Pengaturan suara</strong><label><input id="soundEnabled" type="checkbox" checked style="width:auto"> Bacakan petunjuk dan soal</label><label for="voiceSelect">Suara:</label><select id="voiceSelect"><option value="">Suara Bahasa Indonesia otomatis</option></select><button class="secondary" onclick="speak('Assalamualaikum. Selamat datang di kuis Bahasa Indonesia kelas enam SD Negeri 3 Muara Rupit. Isilah nama dan kelas, kemudian tekan Mulai Menjawab Soal.')">▶ Tes Suara</button><button class="secondary" onclick="stopSpeech()">■ Hentikan suara</button></div>
+<p class="note">Suara menggunakan fitur text-to-speech yang tersedia di browser/perangkat. Pilihan suara Bahasa Indonesia bergantung pada suara yang terpasang di laptop atau HP.</p>
+<div class="actions"><button onclick="startQuiz()">Mulai Menjawab Soal</button></div><p id="identityError" style="color:#b42318"></p>
+</section>
+<section id="quizSection" class="panel hidden">
+<h2>Soal Bahasa Indonesia — 10 Pilihan Ganda</h2><p id="quizIdentity" class="note"></p>
+<div class="soundbar no-print"><button onclick="speakCurrent()">🔊 Bacakan soal ini</button><button class="secondary" onclick="speakAll()">▶ Bacakan semua soal</button><button class="secondary" onclick="stopSpeech()">■ Hentikan suara</button><span class="note">Pilih jawaban dengan mengeklik pilihan A, B, C, atau D.</span></div>
+<form id="quizForm"><div id="questions"></div><div class="actions"><button type="button" onclick="submitQuiz()">Kirim Jawaban dan Lihat Nilai</button><button type="button" class="secondary" onclick="cancelQuiz()">Kembali</button></div></form><p id="quizMessage" style="color:#b42318"></p>
+</section>
+<section id="resultSection" class="panel hidden"><h2>Hasil Kuis</h2><div id="resultText"></div><div class="actions"><button class="green" onclick="prepareCertificate()">Buat Sertifikat</button><button class="secondary" onclick="showSection('dashboardSection')">Dasbor Guru</button><button class="secondary" onclick="newAttempt()">Siswa Berikutnya</button><button class="secondary" onclick="speakResult()">🔊 Bacakan hasil</button></div></section>
+<section id="dashboardSection" class="panel hidden">
+<h2>👩‍🏫 Dasbor Guru</h2><p class="note">Nilai disimpan di browser/perangkat ini. Data tidak otomatis tersinkron ke perangkat lain.</p>
+<div class="grid"><div><label for="teacherPin">PIN guru</label><input id="teacherPin" type="password" placeholder="PIN awal: 1234"></div><div style="align-self:end"><button onclick="unlockDashboard()">Buka Dasbor</button></div></div>
+<div id="dashboardContent" class="hidden">
+<div class="stats"><div class="stat">Total pengerjaan<strong id="statCount">0</strong></div><div class="stat">Rata-rata nilai<strong id="statAverage">0</strong></div><div class="stat">Nilai tertinggi<strong id="statHigh">0</strong></div><div class="stat">Nilai ≥ 75<strong id="statPass">0</strong></div></div>
+<div class="grid" style="margin-top:15px"><div><label for="classFilter">Filter kelas</label><select id="classFilter" onchange="renderDashboard()"><option value="">Semua kelas</option><option>VI A</option><option>VI B</option></select></div><div><label for="nameFilter">Cari nama siswa</label><input id="nameFilter" oninput="renderDashboard()" placeholder="Ketik nama siswa"></div></div>
+<div class="table-wrap" style="margin-top:15px"><table><thead><tr><th>No.</th><th>Tanggal</th><th>Nama</th><th>Kelas</th><th>Absen</th><th>Benar</th><th>Nilai</th><th>Aksi</th></tr></thead><tbody id="scoreRows"></tbody></table></div>
+<div class="actions"><button onclick="exportCSV()">Unduh Daftar Nilai CSV/Excel</button><button class="secondary" onclick="window.print()">Cetak / Simpan PDF</button><button class="danger" onclick="clearScores()">Hapus Semua Nilai</button></div>
+</div></section>
+<section id="certificateSection" class="panel hidden"><h2 class="no-print">Sertifikat Nilai</h2><div id="certificate"><p style="letter-spacing:3px;color:#9a6b00;font-weight:bold">SD NEGERI 3 MUARA RUPIT</p><h2 style="color:#9a6b00">SERTIFIKAT HASIL KUIS</h2><p>Diberikan kepada:</p><div id="certName" class="cert-name">Nama Siswa</div><p id="certClass">Kelas VI</p><p>Telah menyelesaikan Kuis Interaktif Bahasa Indonesia dengan hasil:</p><p style="font-size:1.2rem">Nilai: <strong id="certScore">0</strong> / 100</p><p id="certCorrect">Jawaban benar: 0 dari 10 soal</p><p id="certDate"></p><p style="margin-top:40px">Guru Mata Pelajaran</p><p style="margin-top:45px"><strong>Rasmila Br Ginting</strong></p></div><div class="actions no-print"><button onclick="window.print()">Cetak / Simpan Sertifikat PDF</button><button class="secondary" onclick="showSection('dashboardSection')">Kembali ke Dasbor</button></div></section>
+</main><footer>SD Negeri 3 Muara Rupit • Media pembelajaran Bahasa Indonesia kelas VI</footer>
 <script>
-const questions=[
-{q:"1. Gagasan utama dalam sebuah paragraf disebut ...",a:["Kalimat penutup","Ide pokok","Kata sambung","Judul buku"],c:1},
-{q:"2. Teks yang menceritakan suatu peristiwa disebut ...",a:["Teks narasi","Teks prosedur","Teks iklan","Teks petunjuk"],c:0},
-{q:"3. Sinonim kata 'rajin' adalah ...",a:["Malas","Tekun","Lambat","Lalai"],c:1},
-{q:"4. Kalimat yang berisi ajakan adalah ...",a:["Siapa namamu?","Buku itu tebal.","Marilah kita menjaga kebersihan!","Saya sedang membaca."],c:2},
-{q:"5. Ringkasan yang baik harus ...",a:["Lebih panjang dari teks","Memuat semua kata","Memuat inti bacaan","Berisi pendapat saja"],c:2}
+const QUESTIONS=[
+{q:"Gagasan utama yang dibahas dalam paragraf disebut ...",a:["Kalimat penutup","Ide pokok","Kata sambung","Tanda baca"],c:1},
+{q:"Sinonim kata tekun adalah ...",a:["Rajin","Malas","Lalai","Lambat"],c:0},
+{q:"Antonim kata hemat adalah ...",a:["Cermat","Irit","Boros","Teliti"],c:2},
+{q:"Kalimat yang berisi ajakan adalah ...",a:["Siapa namamu?","Buku itu tebal.","Marilah kita menjaga kebersihan!","Saya sedang membaca."],c:2},
+{q:"Teks yang menjelaskan langkah-langkah melakukan sesuatu disebut teks ...",a:["Narasi","Prosedur","Puisi","Deskripsi"],c:1},
+{q:"Informasi penting dalam bacaan sebaiknya ditemukan dengan cara ...",a:["Membaca dengan cermat","Menebak isi","Melewati semua paragraf","Membaca judul saja"],c:0},
+{q:"Kalimat efektif adalah kalimat yang ...",a:["Bertele-tele","Sulit dipahami","Jelas dan hemat kata","Selalu panjang"],c:2},
+{q:"Tanda baca pada akhir kalimat tanya adalah ...",a:["Titik","Koma","Tanda seru","Tanda tanya"],c:3},
+{q:"Ringkasan yang baik harus memuat ...",a:["Semua kalimat asli","Inti informasi bacaan","Pendapat yang tidak terkait","Hanya kalimat pertama"],c:1},
+{q:"Tokoh, latar, dan alur merupakan unsur ...",a:["Cerita","Surat resmi","Iklan","Petunjuk penggunaan"],c:0}
 ];
-const quiz=document.getElementById("quiz");
-questions.forEach((item,i)=>{
-let html="<p><b>"+item.q+"</b></p>";
-item.a.forEach((option,j)=>{
-html+='<label class="option"><input type="radio" name="q'+i+'" value="'+j+'"> '+option+'</label>';
-});
-quiz.innerHTML+=html;
-});
-function checkAnswers(){
-let score=0,answered=0;
-questions.forEach((item,i)=>{
-const chosen=document.querySelector('input[name="q'+i+'"]:checked');
-if(chosen){answered++;if(Number(chosen.value)===item.c)score++;}
-});
-document.getElementById("result").textContent=
-"Jawaban terisi: "+answered+"/"+questions.length+
-". Nilai: "+Math.round(score/questions.length*100)+
-". Benar: "+score+" dari "+questions.length+" soal.";
-}
+let soundOn=true,activeStudent=null,latestResult=null,currentQuestion=0;
+const $=id=>document.getElementById(id);
+function localDate(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+$("studentDate").value=localDate();
+function loadVoices(){if(!("speechSynthesis" in window))return;const vs=speechSynthesis.getVoices();const select=$("voiceSelect");select.innerHTML='<option value="">Suara Bahasa Indonesia otomatis</option>';vs.forEach((v,i)=>{if((v.lang||"").toLowerCase().startsWith("id")){const o=document.createElement("option");o.value=v.name;o.textContent=v.name+" ("+v.lang+")";select.appendChild(o)}})}
+if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function speak(text){if(!$("soundEnabled").checked||!soundOn)return;if(!("speechSynthesis" in window)){alert("Browser ini tidak mendukung pembaca suara. Coba Chrome versi terbaru.");return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="id-ID";u.rate=.88;u.pitch=1;const chosen=$("voiceSelect").value;const v=speechSynthesis.getVoices().find(x=>x.name===chosen);if(v)u.voice=v;speechSynthesis.speak(u)}
+function stopSpeech(){if("speechSynthesis"in window)speechSynthesis.cancel()}
+function toggleSound(){soundOn=!soundOn;$("soundToggle").textContent=soundOn?"🔊 Suara: Aktif":"🔇 Suara: Mati";if(!soundOn)stopSpeech()}
+function showSection(id){["studentSection","quizSection","resultSection","dashboardSection","certificateSection"].forEach(s=>$(s).classList.toggle("hidden",s!==id));window.scrollTo({top:0,behavior:"smooth"});if(id==="dashboardSection")renderDashboard()}
+function startQuiz(){const name=$("studentName").value.trim(),cls=$("studentClass").value;if(!name||!cls){$("identityError").textContent="Nama lengkap dan kelas wajib diisi.";return}activeStudent={name,cls,number:$("studentNumber").value.trim(),date:$("studentDate").value||localDate()};$("identityError").textContent="";$("quizIdentity").textContent=`Nama: ${name} • Kelas: ${cls} • Tanggal: ${activeStudent.date}`;$("questions").innerHTML=QUESTIONS.map((it,i)=>`<div class="question" id="question${i}"><p>${i+1}. ${it.q}</p>${it.a.map((opt,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"><span>${String.fromCharCode(65+j)}. ${opt}</span></label>`).join("")}<button type="button" class="secondary" onclick="speakQuestion(${i})">🔊 Dengarkan soal ${i+1}</button></div>`).join("");$("quizMessage").textContent="";currentQuestion=0;showSection("quizSection");speak("Assalamualaikum. Selamat mengerjakan kuis Bahasa Indonesia. Ada sepuluh soal. Bacalah soal dan pilih jawaban yang paling tepat. "+QUESTIONS[0].q)}
+function speakQuestion(i){currentQuestion=i;const q=QUESTIONS[i];speak("Soal nomor "+(i+1)+". "+q.q+". Pilihan A, "+q.a[0]+". Pilihan B, "+q.a[1]+". Pilihan C, "+q.a[2]+". Pilihan D, "+q.a[3]+".")}
+function speakCurrent(){speakQuestion(currentQuestion)}
+function speakAll(){let text="Petunjuk. Dengarkan setiap soal dan pilih jawaban yang benar. ";QUESTIONS.forEach((q,i)=>{text+="Soal nomor "+(i+1)+". "+q.q+". Pilihan A, "+q.a[0]+". Pilihan B, "+q.a[1]+". Pilihan C, "+q.a[2]+". Pilihan D, "+q.a[3]+". "});speak(text)}
+function submitQuiz(){let answered=0,correct=0;QUESTIONS.forEach((q,i)=>{const p=document.querySelector(`input[name="q${i}"]:checked`);if(p){answered++;if(Number(p.value)===q.c)correct++}});if(answered<10){$("quizMessage").textContent=`Baru ${answered} dari 10 soal dijawab. Lengkapi semua jawaban dahulu.`;speak($("quizMessage").textContent);return}const score=correct*10;latestResult={...activeStudent,correct,score,total:10,submittedAt:new Date().toISOString()};const all=readScores();all.push(latestResult);localStorage.setItem("muaraRupitQuizScores",JSON.stringify(all));$("resultText").innerHTML=`<div class="stats"><div class="stat">Nama<strong style="font-size:1.1rem">${esc(activeStudent.name)}</strong></div><div class="stat">Kelas<strong>${activeStudent.cls}</strong></div><div class="stat">Jawaban benar<strong>${correct}/10</strong></div><div class="stat">Nilai akhir<strong>${score}</strong></div></div><p>${score>=75?"Bagus sekali! Terus pertahankan semangat belajar.":"Tetap semangat! Pelajari kembali materi dan berlatih lagi."}</p>`;showSection("resultSection");speak("Kuis selesai. "+activeStudent.name+" dari kelas "+activeStudent.cls+". Jawaban benar "+correct+" dari sepuluh soal. Nilai akhir "+score+". "+(score>=75?"Bagus sekali.":"Tetap semangat belajar."))}
+function speakResult(){if(latestResult)speak("Hasil kuis "+latestResult.name+". Kelas "+latestResult.cls+". Benar "+latestResult.correct+" dari sepuluh soal. Nilai "+latestResult.score)}
+function readScores(){try{return JSON.parse(localStorage.getItem("muaraRupitQuizScores")||"[]")}catch(e){return []}}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function unlockDashboard(){if($("teacherPin").value!=="1234"){alert("PIN salah. PIN bawaan adalah 1234.");return}$("dashboardContent").classList.remove("hidden");renderDashboard()}
+function renderDashboard(){if($("dashboardContent").classList.contains("hidden"))return;const all=readScores(),cl=$("classFilter").value,term=$("nameFilter").value.trim().toLowerCase(),rows=all.filter(r=>(!cl||r.cls===cl)&&r.name.toLowerCase().includes(term)),vals=all.map(r=>r.score);$("statCount").textContent=all.length;$("statAverage").textContent=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):0;$("statHigh").textContent=vals.length?Math.max(...vals):0;$("statPass").textContent=vals.filter(n=>n>=75).length;$("scoreRows").innerHTML=rows.length?rows.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.date)}</td><td>${esc(r.name)}</td><td>${esc(r.cls)}</td><td>${esc(r.number||"-")}</td><td>${r.correct}/10</td><td>${r.score}</td><td><button class="gold" onclick="viewCertificate('${r.submittedAt}')">Sertifikat</button></td></tr>`).join(""):'<tr><td colspan="8">Belum ada nilai tersimpan.</td></tr>'}
+function viewCertificate(key){latestResult=readScores().find(r=>r.submittedAt===key)||latestResult;if(latestResult)fillCertificate(latestResult);showSection("certificateSection")}
+function prepareCertificate(){if(latestResult)fillCertificate(latestResult);showSection("certificateSection")}
+function fillCertificate(r){$("certName").textContent=r.name;$("certClass").textContent="Kelas "+r.cls;$("certScore").textContent=r.score;$("certCorrect").textContent="Jawaban benar: "+r.correct+" dari 10 soal";$("certDate").textContent="Tanggal: "+r.date}
+function newAttempt(){stopSpeech();activeStudent=null;latestResult=null;$("studentName").value="";$("studentNumber").value="";$("studentClass").value="";$("studentDate").value=localDate();showSection("studentSection")}
+function cancelQuiz(){if(confirm("Kembali ke identitas? Jawaban yang belum dikirim tidak disimpan.")){stopSpeech();showSection("studentSection")}}
+function exportCSV(){const rows=readScores();if(!rows.length){alert("Belum ada nilai.");return}const csv=[["Tanggal","Nama","Kelas","Nomor Absen","Benar","Jumlah Soal","Nilai"],...rows.map(r=>[r.date,r.name,r.cls,r.number||"",r.correct,r.total,r.score])].map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\r\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="daftar-nilai-kuis-bahasa-indonesia.csv";a.click();URL.revokeObjectURL(url)}
+function clearScores(){if(confirm("Hapus semua nilai yang tersimpan di browser ini?")){localStorage.removeItem("muaraRupitQuizScores");renderDashboard()}}
 </script>
-</body>
-</html>
-
+</body></html>
