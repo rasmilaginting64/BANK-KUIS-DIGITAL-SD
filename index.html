@@ -99,4 +99,10 @@ function cancelQuiz(){if(confirm("Kembali ke identitas? Jawaban yang belum dikir
 function exportCSV(){const rows=readScores();if(!rows.length){alert("Belum ada nilai.");return}const csv=[["Tanggal","Nama","Kelas","Nomor Absen","Benar","Jumlah Soal","Nilai"],...rows.map(r=>[r.date,r.name,r.cls,r.number||"",r.correct,r.total,r.score])].map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\r\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="daftar-nilai-kuis-bahasa-indonesia.csv";a.click();URL.revokeObjectURL(url)}
 function clearScores(){if(confirm("Hapus semua nilai yang tersimpan di browser ini?")){localStorage.removeItem("muaraRupitQuizScores");renderDashboard()}}
 </script>
+<div style="max-width:800px;margin:20px auto;padding:20px;border-radius:12px;background:#f0f7ff;text-align:center;font-family:Arial,sans-serif">
+  <h2>Bank Kuis Digital SD</h2>
+  <p>SD Negeri 3 Muara Rupit</p>
+  <a href="index_kuis_matematika_kelas_vi.html" style="display:inline-block;padding:12px 20px;background:#2563eb;color:white;border-radius:8px;text-decoration:none">Kuis Matematika Kelas VI</a>
+</div>
+
 </body></html>
